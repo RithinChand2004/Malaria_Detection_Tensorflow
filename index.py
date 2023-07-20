@@ -56,8 +56,20 @@ with tab2:
                 
                 st.warning(message)
             
-            plt.pie([percentage, (100-percentage)], labels= ['Not infected', 'Infected'], explode= (0, 0.1), autopct='%1.1f%%', startangle=45, colors=['green', 'red'], shadow=True, )
+            plt.figure(figsize=(5, 5))  # Adjust the size as per your requirement
+
+            # Plot the pie chart
+            plt.pie([percentage, (100 - percentage)], labels=['Not infected', 'Infected'], explode=(0, 0.1),
+                    autopct='%1.1f%%', startangle=45, colors=['green', 'red'], shadow=True)
+
+            # Set aspect ratio to be equal, so the pie chart will be circular
+            plt.axis('equal')
+
+            # Show the pie chart using Streamlit
             st.pyplot(plt)
+
+            # Close the plot to release resources
+            plt.close()
 
 with tab3:
     st.write("This project is made by:")
